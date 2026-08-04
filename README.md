@@ -76,17 +76,9 @@ The popup writes the mode to `chrome.storage.local`. The service worker listens 
 - A URL's `.pdf` suffix is unreliable (extensionless URLs, query strings, content-negotiated endpoints), which is why the header path prefers matching on `Content-Type` and only falls back to the URL when the type is generic.
 - Header rules apply per request: changing the mode affects the next PDF you open, not one already on screen. DOM changes apply immediately.
 
-## Testing
+## Behaviour
 
-A local server serves the whole matrix with no dependencies:
-
-```bash
-npm run test:server     # or: node test/server.js
-```
-
-Then open <http://localhost:8787> and click through the cases in each mode.
-
-### Header matrix (navigation)
+### Headers (navigation)
 
 | Content-Type | Content-Disposition | Default | Force View | Force Download |
 | --- | --- | --- | --- | --- |
@@ -95,14 +87,14 @@ Then open <http://localhost:8787> and click through the cases in each mode.
 | `application/octet-stream` | none / `inline` | Download | → `application/pdf` + `inline` | no-op |
 | `application/octet-stream` | `attachment` | Download | → `application/pdf` + `inline` | no-op |
 
-### DOM matrix
+### Anchors
 
 | Markup | Default | Force View | Force Download |
 | --- | --- | --- | --- |
 | `<a href="x.pdf">` | per headers | per headers | add `download` |
 | `<a href="x.pdf" download>` | Download | strip `download` | no-op |
 
-Out of scope, and expected to keep downloading in every mode: JS-synthesised `a.download` + `click()`, `fetch` → `Blob` save, `blob:`/`data:` saves. The `/dom` page includes buttons for these so the failure mode is visible.
+Out of scope, and expected to keep downloading in every mode: JS-synthesised `a.download` + `click()`, `fetch` → `Blob` save, `blob:`/`data:` saves.
 
 ## Layout
 
@@ -114,7 +106,6 @@ src/popup/             three-state popup UI
 rules/                 static declarativeNetRequest rulesets
 icons/                 toolbar icons per state
 tools/make_icons.py    regenerates icons/ (needs Pillow)
-test/server.js         local test matrix server
 ```
 
 ## License
