@@ -10,6 +10,6 @@
   },
   "scripts": {
     "icons": "python3 tools/make_icons.py",
-    "package": "zip -r pdforce.zip manifest.json src rules icons LICENSE README.md -x '*.DS_Store'"
+    "package": "zip -r pdforce-$npm_package_version.zip manifest.json src rules icons LICENSE README.md -x '*.DS_Store'"
   }
 }
