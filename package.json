@@ -1,0 +1,16 @@
+{
+  "name": "pdforce",
+  "version": "1.0.0",
+  "description": "Manifest V3 Chrome extension that forces PDFs to open in the browser viewer or to download.",
+  "license": "AGPL-3.0-or-later",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DocterDum/PDForce.git"
+  },
+  "scripts": {
+    "icons": "python3 tools/make_icons.py",
+    "test:server": "node test/server.js",
+    "package": "zip -r pdforce.zip manifest.json src rules icons LICENSE README.md -x '*.DS_Store'"
+  }
+}

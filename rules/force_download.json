@@ -1,0 +1,54 @@
+[
+  {
+    "id": 1,
+    "priority": 1,
+    "action": {
+      "type": "modifyHeaders",
+      "responseHeaders": [
+        { "header": "content-disposition", "operation": "set", "value": "attachment" }
+      ]
+    },
+    "condition": {
+      "resourceTypes": ["main_frame"],
+      "responseHeaders": [
+        {
+          "header": "content-type",
+          "values": ["application/pdf*", "application/x-pdf*"]
+        }
+      ],
+      "excludedResponseHeaders": [
+        { "header": "content-disposition", "values": ["attachment*"] }
+      ]
+    }
+  },
+  {
+    "id": 2,
+    "priority": 1,
+    "action": {
+      "type": "modifyHeaders",
+      "responseHeaders": [
+        { "header": "content-disposition", "operation": "set", "value": "attachment" }
+      ]
+    },
+    "condition": {
+      "regexFilter": "\\.pdf(\\?|#|$)",
+      "resourceTypes": ["main_frame"],
+      "responseHeaders": [
+        {
+          "header": "content-type",
+          "values": [
+            "application/octet-stream*",
+            "binary/octet-stream*",
+            "application/force-download*",
+            "application/x-download*",
+            "application/download*",
+            "application/unknown*"
+          ]
+        }
+      ],
+      "excludedResponseHeaders": [
+        { "header": "content-disposition", "values": ["attachment*"] }
+      ]
+    }
+  }
+]
