@@ -116,6 +116,8 @@ src/popup/             three-state popup UI
 rules/                 static declarativeNetRequest rulesets
 icons/                 store-*.png product icon, {off,view,download}-*.png toolbar states
 tools/make_icons.py    regenerates icons/ (needs Pillow)
+tools/make_store_assets.py  regenerates store/ images
+store/                 Chrome Web Store listing copy and images
 ```
 
 ## License
