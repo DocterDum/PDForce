@@ -96,6 +96,16 @@ The popup writes the mode to `chrome.storage.local`. The service worker listens 
 
 Out of scope, and expected to keep downloading in every mode: JS-synthesised `a.download` + `click()`, `fetch` → `Blob` save, `blob:`/`data:` saves.
 
+## Releasing
+
+Bump `version` in `manifest.json`, then push a matching tag:
+
+```bash
+git tag v1.0.1 && git push origin v1.0.1
+```
+
+A workflow builds `pdforce.zip` (the files Chrome needs, nothing else) and attaches it to a GitHub release. The job fails if the tag and the manifest version disagree. The same zip is what you upload to the Chrome Web Store developer dashboard.
+
 ## Layout
 
 ```
