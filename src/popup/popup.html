@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>PDForce</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <header>
+      <h1>PDForce</h1>
+      <p class="subtitle">How should PDFs be handled?</p>
+    </header>
+
+    <div class="modes" role="radiogroup" aria-label="PDF handling mode">
+      <button class="mode" type="button" role="radio" data-mode="off" aria-checked="true">
+        <span class="dot dot-off" aria-hidden="true"></span>
+        <span class="label">
+          <span class="name">Off</span>
+          <span class="hint">Let the site decide</span>
+        </span>
+      </button>
+
+      <button class="mode" type="button" role="radio" data-mode="view" aria-checked="false">
+        <span class="dot dot-view" aria-hidden="true"></span>
+        <span class="label">
+          <span class="name">Force View</span>
+          <span class="hint">Open in the browser viewer</span>
+        </span>
+      </button>
+
+      <button class="mode" type="button" role="radio" data-mode="download" aria-checked="false">
+        <span class="dot dot-download" aria-hidden="true"></span>
+        <span class="label">
+          <span class="name">Force Download</span>
+          <span class="hint">Save the file instead</span>
+        </span>
+      </button>
+    </div>
+
+    <p class="footnote">
+      PDF links on open pages update immediately. Response-header changes apply
+      to the next PDF you open.
+    </p>
+
+    <script src="popup.js"></script>
+  </body>
+</html>

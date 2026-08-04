@@ -1,0 +1,134 @@
+:root {
+  --bg: #ffffff;
+  --fg: #16181d;
+  --muted: #6b7280;
+  --border: #e4e6eb;
+  --hover: #f4f5f7;
+  --selected: #eef2ff;
+  --selected-border: #6366f1;
+  --off: #9aa0a6;
+  --view: #2f6fed;
+  --download: #17a34a;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1c1e22;
+    --fg: #eceef1;
+    --muted: #9aa0a6;
+    --border: #33363c;
+    --hover: #26292e;
+    --selected: #262b3d;
+    --selected-border: #7c83f5;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  width: 264px;
+  padding: 14px;
+  background: var(--bg);
+  color: var(--fg);
+  font: 13px/1.4 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+header {
+  margin-bottom: 12px;
+}
+
+h1 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+
+.subtitle {
+  margin: 2px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.modes {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.mode {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 9px 10px;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.12s ease, border-color 0.12s ease;
+}
+
+.mode:hover {
+  background: var(--hover);
+}
+
+.mode:focus-visible {
+  outline: 2px solid var(--selected-border);
+  outline-offset: 1px;
+}
+
+.mode[aria-checked="true"] {
+  background: var(--selected);
+  border-color: var(--selected-border);
+}
+
+.dot {
+  flex: none;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: 0.35;
+}
+
+.mode[aria-checked="true"] .dot {
+  opacity: 1;
+  box-shadow: 0 0 0 3px color-mix(in srgb, currentColor 22%, transparent);
+}
+
+.dot-off {
+  color: var(--off);
+}
+.dot-view {
+  color: var(--view);
+}
+.dot-download {
+  color: var(--download);
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+}
+
+.name {
+  font-weight: 550;
+}
+
+.hint {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.footnote {
+  margin: 12px 0 0;
+  color: var(--muted);
+  font-size: 11px;
+}
