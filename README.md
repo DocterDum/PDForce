@@ -104,7 +104,7 @@ Bump `version` in `manifest.json`, then push a matching tag:
 git tag v1.0.1 && git push origin v1.0.1
 ```
 
-A workflow builds `pdforce.zip` (the files Chrome needs, nothing else) and attaches it to a GitHub release. The job fails if the tag and the manifest version disagree. The same zip is what you upload to the Chrome Web Store developer dashboard.
+A workflow builds `pdforce-<version>.zip` (the files Chrome needs, nothing else) and attaches it to a GitHub release. The job fails if the tag and the manifest version disagree. The same zip is what you upload to the Chrome Web Store developer dashboard.
 
 ## Layout
 
@@ -114,7 +114,7 @@ src/background.js      service worker: mode → ruleset + icon
 src/content.js         DOM rewrite + MutationObserver
 src/popup/             three-state popup UI
 rules/                 static declarativeNetRequest rulesets
-icons/                 toolbar icons per state
+icons/                 store-*.png product icon, {off,view,download}-*.png toolbar states
 tools/make_icons.py    regenerates icons/ (needs Pillow)
 ```
 
