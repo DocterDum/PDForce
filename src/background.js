@@ -25,12 +25,14 @@ async function getMode() {
   return normaliseMode(stored[STORAGE_KEY]);
 }
 
+// Root-absolute: relative paths would resolve against the worker's own
+// directory (src/), not the extension root.
 function iconPaths(mode) {
   return {
-    16: `icons/${mode}-16.png`,
-    32: `icons/${mode}-32.png`,
-    48: `icons/${mode}-48.png`,
-    128: `icons/${mode}-128.png`
+    16: `/icons/${mode}-16.png`,
+    32: `/icons/${mode}-32.png`,
+    48: `/icons/${mode}-48.png`,
+    128: `/icons/${mode}-128.png`
   };
 }
 
