@@ -10,7 +10,6 @@
   },
   "scripts": {
     "icons": "python3 tools/make_icons.py",
-    "test:server": "node test/server.js",
     "package": "zip -r pdforce.zip manifest.json src rules icons LICENSE README.md -x '*.DS_Store'"
   }
 }
