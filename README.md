@@ -12,7 +12,11 @@ Three states, chosen from the toolbar popup:
 
 The choice is stored in `chrome.storage.local` and persists across restarts. The toolbar icon reflects the current state (grey bar / blue eye / green arrow).
 
-## Install (unpacked)
+## Install
+
+[**Install from the Chrome Web Store**](https://chromewebstore.google.com/detail/pdforce/bhbcibddhmfacobmglmoemgmgdkldjjf) — the published build, updated automatically.
+
+### Unpacked (from source)
 
 1. Clone this repository.
 2. Open `chrome://extensions`, enable **Developer mode**.
